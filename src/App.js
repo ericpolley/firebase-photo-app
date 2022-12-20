@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="m-2">
      <Router>
-      <Header />
+      <Header/>
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/forgot-password' element={<ForgotPassword />}></Route>
