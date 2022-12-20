@@ -6,18 +6,20 @@ import Profile from './pages/Profile';
 import Offers from './pages/Offers';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import Header from './components/Header';
 
 function App() {
   return (
     <div className="m-2">
      <Router>
+      <Header />
       <Routes>
         <Route path='/' element={<Home />}></Route>
-        <Route path='/forgotpassword' element={<ForgotPassword />}></Route>
+        <Route path='/forgot-password' element={<ForgotPassword />}></Route>
         <Route path='/profile' element={<Profile />}></Route>
         <Route path='/offers' element={<Offers />}></Route>
-        <Route path='/signin' element={<SignIn />}></Route>
-        <Route path='/signup' element={<SignUp />}></Route>
+        <Route path='/sign-in' element={<SignIn />}></Route>
+        <Route path='/sign-up' element={<SignUp />}></Route>
       </Routes>
      </Router>
     </div>
