@@ -23,7 +23,7 @@ export default function SignIn() {
       <form className='flex flex-col'>
       <input type="email" id="email" value={email} onChange={onChange} placeholder="email address" className='mt-2 mb-2'></input>
       <input type={showPassword ? "text" : "password"} id="password" value={password} onChange={onChange} placeholder="password" className='mt-2 mb-2'></input>
-     <div className='absolute top-64 ml-[180px] mt-2 cursor-pointer'> {showPassword ? (<AiFillEyeInvisible onClick={()=>setShowPassword((prevState)=>!prevState)} />) : (<AiFillEye onClick={()=>setShowPassword((prevState)=>!prevState)}/>)} </div>
+     <div className='absolute top-64 ml-[205px] mt-2 cursor-pointer'> {showPassword ? (<AiFillEyeInvisible onClick={()=>setShowPassword((prevState)=>!prevState)} />) : (<AiFillEye onClick={()=>setShowPassword((prevState)=>!prevState)}/>)} </div>
       <div className='flex flex-col text-sm text-right'>
         <p>No account?
           <Link to="/sign-up" className='text-red-600 hover:text-red-400 ml-2'>Register</Link>

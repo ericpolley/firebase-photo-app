@@ -24,7 +24,8 @@ export default function ForgotPassword() {
           <Link to="/sign-up" className='text-red-600 hover:text-red-400 ml-2'>Sign Up</Link>
         </p>
       </div>
-      <button className='bg-blue-600 text-white rounded-lg border-2 border-black hover:bg-blue-500 p-1 m-1 uppercase shadow-lg active:bg-blue-700'>reset my Password</button>
+      <button className='bg-blue-600 text-white rounded-lg border-2 border-black hover:bg-blue-500 p-1 m-1 uppercase shadow-lg active:bg-blue-700'>reset
+       my Password</button>
 
       </form>
     </div>
