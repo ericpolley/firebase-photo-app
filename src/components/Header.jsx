@@ -23,7 +23,7 @@ export default function Header() {
                     ${pathMathRoute("/offers") && "text-black border-b-blue-500"}`} onClick={()=>navigate('/offers')}>Offers</li>
                     <li className={`py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent 
                     ${pathMathRoute("/sign-in") && "text-black border-b-blue-500"}`} onClick={()=>navigate('/sign-in')}>Sign In</li>
-                </ul>
+                </ul> 
             </div>
         </header>
     </div>
