@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import {AiFillEye, AiFillEyeInvisible} from 'react-icons/ai'
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import OAuth from '../components/OAuth';
+import { signInWithEmailAndPassword, getAuth } from 'firebase/auth';
+import {toast} from 'react-toastify'
 
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
@@ -10,17 +12,31 @@ export default function SignIn() {
     password: '',
   });
   const {email, password} = formData;
+  const navigate = useNavigate()
   function onChange(e) {
     setFormData((prevState)=>({
       ...prevState,
       [e.target.id]: e.target.value,
     }))
   }
+  async function onSubmit(e) {
+    e.preventDefault()
+    try {
+      const auth = getAuth()
+      const userCredential = await signInWithEmailAndPassword(auth, email, password)
+      if(userCredential.user){
+        navigate("/")
+      }
+    } catch (error) {
+      toast.error("Unable to Sign In")
+    }
+  }
+
   return (
     <section className='flex flex-col items-center'>
       <div className=' p-6 border-2 rounded-xl border-black shadow-2xl w-fit flex-col flex bg-blue-100'>
       <h1 className='text-center font-bold text-2xl mt-2 mb-2'>Sign In</h1>
-      <form className='flex flex-col'>
+      <form onSubmit={onSubmit} className='flex flex-col'>
       <input type="email" id="email" value={email} onChange={onChange} placeholder="email address" className='mt-2 mb-2'></input>
       <input type={showPassword ? "text" : "password"} id="password" value={password} onChange={onChange} placeholder="password" className='mt-2 mb-2'></input>
      <div className='absolute top-64 ml-[205px] mt-2 cursor-pointer'> {showPassword ? (<AiFillEyeInvisible onClick={()=>setShowPassword((prevState)=>!prevState)} />) : (<AiFillEye onClick={()=>setShowPassword((prevState)=>!prevState)}/>)} </div>
