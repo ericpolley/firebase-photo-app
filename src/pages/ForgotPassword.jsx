@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import {getAuth, sendPasswordResetEmail} from 'firebase/auth';
 
@@ -7,6 +7,7 @@ import {getAuth, sendPasswordResetEmail} from 'firebase/auth';
 export default function ForgotPassword() {
 
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
   function onChange(e) {
     setEmail(e.target.value);
@@ -16,6 +17,7 @@ export default function ForgotPassword() {
     try {
       const auth = getAuth() 
       await sendPasswordResetEmail(auth, email)
+      navigate('/sign-in')
     
       toast.success('Password Reset Email Sent')
     } catch (error) {
