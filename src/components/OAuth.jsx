@@ -26,7 +26,7 @@ try {
     })
   }
 
-  navigate('/');
+  navigate('/profile');
 } catch (error) {
   toast.error("Could not authorize")
   console.log('error')
