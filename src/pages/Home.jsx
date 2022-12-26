@@ -10,6 +10,7 @@ export default function Home() {
     <p>Sign Up!</p>
     <br />
     <p>Sign In!</p>
+    
 
     <br /><br />
     <p>That is the idea.</p>
